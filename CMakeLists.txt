@@ -7,7 +7,5 @@ include_directories(.)
 
 add_executable(tubes
     main.cpp
-    MLL.cpp
-    MLL.h
-        Driver.cpp
-        Customer.cpp)
+        MLL.h
+)
