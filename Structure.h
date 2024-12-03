@@ -20,29 +20,21 @@ using namespace std;
 #define prev(P) P->prev
 #define info(P) P->info
 
-// Driver
+// Driver (SLL)
 
 struct Driver {
     int id;
     string name;
     string phone;
     string vehiclePlate;
-    string status;
+    string status; // active , inactive
     Driver* next;
 };
 
-// typedef
-typedef Driver DriverInfotype;
-typedef struct elmDriver *addrDriver;
+// DriverList
 
-struct elmDriver {
-    DriverInfotype info;
-    addrDriver next;
-};
-
-struct listDriver {
-  addrDriver first;
-  addrDriver last;
+struct DriverList {
+    Driver* head;
 };
 
 // Customer
@@ -98,7 +90,7 @@ struct listRelation {
 
 
 // Create List
-void createListDriver(listDriver &Ld);
+
 
 /**
  * ====================================================================================================
@@ -107,20 +99,18 @@ void createListDriver(listDriver &Ld);
  */
 
 class DriverClass {
-private:
-    addrDriver head;
 public:
     DriverClass();
 
-    addrDriver createElementDriver(DriverInfotype data);
+    Driver* createElementDriver(DriverList data);
 
-    void insertDriver(listDriver &Ld, addrDriver addr_d); // Define Insert Driver
+    void insertDriver(DriverList &Ld, Driver D); // Define Insert Driver -> As a Insert Last
 
-    void deleteDriver(listDriver &Ld, listRelation &Lr, int driverId); // Delete Driver
+    void deleteDriver(DriverList &Ld, listRelation &Lr, int Id); // Delete Driver
 
-    addrDriver findDriver(listDriver &Ld, int driverId); // Cari Driver
+    Driver* findDriver(DriverList &Ld, int driverId); // Cari Driver
 
-    void displayDrivers(listDriver &Ld); // Tampilkan List Driver
+    void displayDrivers(DriverList &Ld); // Tampilkan List Driver
 
     int countOrdersPerDriver(listRelation Lr, string driverId ); // Validate and Check Count Order of Driver
 
