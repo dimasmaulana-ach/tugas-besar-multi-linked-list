@@ -7,10 +7,22 @@
 
 #endif //STRUCTURE_H
 
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 // Driver
 
-struct 
+struct Driver {
+    int id;
+    string name;
+    string phone;
+    string vehiclePlate;
+    string status;
+    Driver* next;
+
+};
 
 // Customer
 
