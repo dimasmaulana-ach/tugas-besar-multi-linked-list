@@ -6,7 +6,7 @@
 
 using namespace std;
 
-// Node untuk Parent (Driver)
+// Node untuk Parent (Driver) -> SLL
 struct Driver {
     int id;
     string name;
@@ -19,26 +19,28 @@ struct Driver {
         : id(id), name(name), phone(phone), vehiclePlate(vehiclePlate), status(status), next(nullptr) {}
 };
 
-// Node untuk Child (Customer)
+// Node untuk Child (Customer) -> DLL
 struct Customer {
     int id;
     string name;
     string phone;
     string address;
     Customer* next;
+    Customer* prev;
 
     Customer(int id, string name, string phone, string address)
-        : id(id), name(name), phone(phone), address(address), next(nullptr) {}
+        : id(id), name(name), phone(phone), address(address), next(nullptr), prev(nullptr) {}
 };
 
-// Node untuk Relasi (Order)
+// Node untuk Relasi (Order) -> DLL
 struct Relation {
     Driver* driver;
     Customer* customer;
     Relation* next;
+    Relation* prev;
 
     Relation(Driver* driver, Customer* customer)
-        : driver(driver), customer(customer), next(nullptr) {}
+        : driver(driver), customer(customer), next(nullptr), prev(nullptr) {}
 };
 
 // Kelas untuk mengelola daftar Driver (Parent)
@@ -52,7 +54,7 @@ public:
     void deleteDriver(int id); // d
     Driver* findDriver(int id); // g
     void displayDrivers(); // j
-    int countRelationsPerDriver(Driver* driver); // p
+    int countRelationsPerDriver(Driver* driver, Relation* relationHead); // p
     ~DriverList();
 };
 
