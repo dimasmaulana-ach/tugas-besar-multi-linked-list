@@ -20,7 +20,9 @@ using namespace std;
 #define prev(P) P->prev
 #define info(P) P->info
 
+// =================
 // Driver (SLL)
+// =================
 
 struct Driver {
     int id;
@@ -36,8 +38,9 @@ struct Driver {
 struct DriverList {
     Driver* head;
 };
-
+// =================
 // Customer
+// =================
 
 struct Customer {
     int id;
@@ -63,8 +66,9 @@ struct listCustomer {
   CustomerAddress last;
 };
 
-
+// =================
 // Relation (Order)
+// =================
 
 struct Relation {
     Driver* driver;
